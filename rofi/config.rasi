@@ -1,0 +1,48 @@
+configuration {
+    modi: "drun,run";
+    show-icon: false;
+    display-drun: "";
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+@theme "/usr/share/rofi/themes/sidebar.rasi"
+
+window {
+    /* Расположение: Нижний левый угол */
+    location:         south west;
+    anchor:           south west;
+    
+    /* Геометрия: Очень тонкое и узкое */
+    width:            250px;       /* Узкая ширина */
+    height:           32px;        /* Минимальная высота */
+    x-offset:         10px;        /* Отступ от края */
+    y-offset:         -10px;       /* Отступ от низа */
+    
+    /* Оформление */
+    border:           1px;
+    border-radius:    2px;
+    border-color:     #333333;
+    background-color: #111111;
+}
+
+mainbox {
+    children:         [ inputbar ];
+    padding:          0px;
+    background-color: transparent;
+}
+
+inputbar {
+    children:         [ entry ];
+    padding:          4px 8px;
+    background-color: transparent;
+}
+
+entry {
+    placeholder:      "";          /* Пустота для скрытности */
+    cursor:           pointer;
+    text-color:       #666666;     /* Тусклый текст, чтобы не светился */
+}
+
+listview {
+    enabled:          false;       /* Список не нужен */
+}

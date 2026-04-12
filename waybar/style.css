@@ -1,0 +1,24 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono", "Roboto", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+    margin: 0;
+    padding: 0 3px;
+}
+
+window#waybar {
+    background: #191919;
+    color: #e0e0e0;
+}
+
+#battery {
+    margin-left: 20px;
+}
+
+
+/* Выделение батареи при низком заряде */
+#battery.critical:not(.charging) {
+    color: #fe0048;
+}

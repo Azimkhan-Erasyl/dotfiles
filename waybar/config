@@ -1,0 +1,53 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "spacing": 0,
+
+    "modules-left": ["custom/gemini"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "battery"],
+
+    "network": {
+        "interval": 1,
+        "interface": "wlan*",
+        "format-wifi": "{essid}  ",
+        "format-ethernet": "Ethernet 󰈀",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format": "<big>{essid}</big>",
+        "on-click": "kitty -e sh -c 'iwctl station wlan0 scan; iwctl station wlan0 get-networks; iwctl'",
+        "max-length": 20
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%d.%m | %H:%M}",
+        "tooltip-format": "<big>{calendar}</big>",
+        "on-click": "kitty -e btop"
+    },
+
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+
+    "custom/gemini": {
+        "format": "{}",
+        "exec": "cat /tmp/gemini_output.txt 2> /dev/null",
+        "interval": 1,
+        "max-length": 51,
+        "tooltip": true,
+        "on-click": "echo '' > /tmp/gemini_output.txt" 
+    }
+}
